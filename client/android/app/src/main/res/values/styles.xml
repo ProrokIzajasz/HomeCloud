@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.HomeCloud" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#40522B</item>
+        <item name="android:navigationBarColor">#2F2016</item>
+        <item name="android:statusBarColor">#2F2016</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

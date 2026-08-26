@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HomeCloud</string>
+    <string name="offline_message">Nie można połączyć się z HomeCloud. Sprawdź, czy komputer i serwer są włączone.</string>
+</resources>

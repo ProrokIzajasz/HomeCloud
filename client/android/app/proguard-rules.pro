@@ -1,0 +1,1 @@
+-keep class pl.homecloud.app.NativeBridge { *; }

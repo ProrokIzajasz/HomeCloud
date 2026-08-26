@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>HomeCloud</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=6">
+</head>
+<body>
+  <div class="wood" aria-hidden="true"></div>
+
+  <section id="loginView" class="login-shell">
+    <form id="loginForm" class="login-card">
+      <div class="brand-mark" aria-hidden="true"><span>⌂</span><i>☁</i></div>
+      <h1>Home<span>Cloud</span></h1>
+      <p>Wasze wspólne, prywatne miejsce.</p>
+      <label>Nazwa użytkownika<input id="username" autocomplete="username" required></label>
+      <label>Hasło<input id="password" type="password" autocomplete="current-password" required></label>
+      <button type="submit" class="primary wide">Zaloguj się</button>
+      <p id="loginError" class="error" role="alert"></p>
+      <small>Połączenie szyfrowane przez Tailscale</small>
+    </form>
+  </section>
+
+  <div id="appView" class="app hidden">
+    <aside class="sidebar panel">
+      <div class="brand"><div class="mini-mark">⌂<i>☁</i></div><strong>Home<span>Cloud</span></strong></div>
+      <nav>
+        <button class="nav-item active" data-view="files"><b>▢</b> Moje pliki</button>
+        <button class="nav-item" data-view="recent"><b>◷</b> Ostatnie</button>
+        <button class="nav-item" data-view="trash"><b>♲</b> Kosz</button>
+        <hr>
+        <button class="nav-item muted" disabled title="Moduł zostanie dodany później"><b>⌂</b> Smart Home</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="plant" aria-hidden="true">⌇<span>❧</span></div>
+        <button id="logoutButton" class="ghost">Wyloguj</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <label class="search"><span>⌕</span><input id="searchInput" placeholder="Szukaj plików i folderów"></label>
+        <div class="storage-summary"><span class="cloud-icon">☁</span><div><strong id="storageText">0 GB z 200 GB</strong><div class="progress"><i id="storageProgress"></i></div></div></div>
+        <div class="profile"><span id="avatar">D</span><strong id="currentUser">Dubu</strong></div>
+      </header>
+
+      <section id="contentView">
+        <div class="section-heading"><div><p class="eyebrow" id="pathLabel">HomeCloud</p><h2 id="sectionTitle">Szybki dostęp</h2></div><div class="actions"><button id="newFolderButton" class="secondary">＋ Folder</button><button id="addButton" class="primary">＋ Dodaj</button></div></div>
+
+        <div id="quickAccess" class="folder-grid">
+          <button class="folder-card" data-folder="Zdjęcia"><span>▣</span><strong>Zdjęcia</strong><i>›</i></button>
+          <button class="folder-card" data-folder="Dokumenty"><span>▤</span><strong>Dokumenty</strong><i>›</i></button>
+          <button class="folder-card" data-folder="Wspólne"><span>♚</span><strong>Wspólne</strong><i>›</i></button>
+          <button class="folder-card" data-folder="Do pobrania"><span>↓</span><strong>Do pobrania</strong><i>›</i></button>
+        </div>
+
+        <section class="files-panel panel">
+          <div class="table-title"><div><button id="backButton" class="icon-button hidden" title="Wstecz">←</button><h2 id="listTitle">Pliki</h2></div><button id="refreshButton" class="icon-button" title="Odśwież">↻</button></div>
+          <div class="table-wrap">
+            <table><thead><tr><th>Nazwa</th><th>Typ</th><th>Rozmiar</th><th></th></tr></thead><tbody id="fileRows"></tbody></table>
+            <div id="emptyState" class="empty hidden"><span>☁</span><strong>Ten folder jest pusty</strong><p>Dodaj pierwszy plik albo cały folder.</p></div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <input id="filePicker" type="file" multiple hidden>
+  <input id="folderPicker" type="file" webkitdirectory multiple hidden>
+  <div id="uploadMenu" class="menu hidden"><button data-pick="files">Dodaj pliki</button><button data-pick="folder">Dodaj folder</button></div>
+  <div id="uploadStatus" class="upload-status hidden" role="status">
+    <div><strong id="uploadTitle">Wysyłanie plików</strong><span id="uploadDetails"></span></div>
+    <div class="upload-progress"><i id="uploadProgress"></i></div>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <dialog id="promptDialog"><form method="dialog"><h3 id="dialogTitle">Nowy folder</h3><input id="dialogInput" required><div><button value="cancel" class="secondary">Anuluj</button><button id="dialogConfirm" value="default" class="primary">Utwórz</button></div></form></dialog>
+  <dialog id="previewDialog" class="preview-dialog">
+    <div class="preview-header"><strong id="previewTitle">Podgląd</strong><button id="previewClose" class="icon-button" aria-label="Zamknij">×</button></div>
+    <div id="previewBody" class="preview-body"></div>
+    <button id="previewPrevious" class="preview-arrow preview-previous" aria-label="Poprzednie zdjęcie">‹</button>
+    <button id="previewNext" class="preview-arrow preview-next" aria-label="Następne zdjęcie">›</button>
+  </dialog>
+  <script src="/assets/app.js?v=8" defer></script>
+</body>
+</html>
