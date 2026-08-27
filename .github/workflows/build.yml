@@ -4,7 +4,12 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+      - name: Restore WebView2 SDK
+        shell: pwsh
+        run: |
+          dotnet new classlib --name WebView2Restore --output "$env:RUNNER_TEMP/WebView2Restore"
+          dotnet add "$env:RUNNER_TEMP/WebView2Restore/WebView2Restore.csproj" package Microsoft.Web.WebView2 --version 1.0.3179.45
       - run: cmake -S . -B build -A x64
       - run: cmake --build build --config Release
       - run: ctest --test-dir build -C Release --output-on-failure
