@@ -2,6 +2,8 @@
 
 [![Build](https://github.com/ProrokIzajasz/HomeCloud/actions/workflows/build.yml/badge.svg)](https://github.com/ProrokIzajasz/HomeCloud/actions/workflows/build.yml)
 
+[Download the latest private portfolio release](https://github.com/ProrokIzajasz/HomeCloud/releases/latest)
+
 C++ foundation for the private-cloud and smart-home application described in
 `../PROJECT_1_PLAN.md`. The Vilanous project is unrelated and is not a dependency.
 
