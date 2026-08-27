@@ -9,6 +9,8 @@ C++ foundation for the private-cloud and smart-home application described in
 
 ![HomeCloud local login screen](docs/images/homecloud-overview.png)
 
+![HomeCloud desktop interface concept](design/homecloud-ui-concept-v1.png)
+
 The captured interface is served by the real local C++ API. A user signs in, navigates
 private folders, uploads or previews files, and can restore deleted items from the trash.
 The public repository keeps the server bound to localhost by default.
@@ -186,6 +188,8 @@ ctest --test-dir build --output-on-failure
 Windows uses the native BCrypt provider and Linux uses OpenSSL. Both providers
 are checked against the same PBKDF2 compatibility vector, so the user database
 can move with the cloud data.
+
+No open-source license is granted for this private portfolio project.
 
 ## Third-party code
 
