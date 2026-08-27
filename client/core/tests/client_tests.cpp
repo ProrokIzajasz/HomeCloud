@@ -22,15 +22,15 @@ HttpResponse response(int status, string_view body) {
 int main() {
     try {
         Client client;
-        const auto login = client.login_request("Paka", "a password & symbols");
+        const auto login = client.login_request("Alex", "a password & symbols");
         require(login.method == HttpMethod::post, "Login method is incorrect");
         require(string(login.body.begin(), login.body.end()) ==
-                    "username=Paka&password=a%20password%20%26%20symbols",
+                    "username=Alex&password=a%20password%20%26%20symbols",
                 "Login form encoding is incorrect");
 
-        client.accept_login("Paka", response(200,
+        client.accept_login("Alex", response(200,
             R"({"token":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"})"));
-        require(client.authenticated() && client.username() == "Paka", "Login state is incorrect");
+        require(client.authenticated() && client.username() == "Alex", "Login state is incorrect");
         require(client.storage_request().headers.contains("Authorization"),
                 "Bearer token is missing");
 

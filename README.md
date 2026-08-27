@@ -5,6 +5,14 @@
 C++ foundation for the private-cloud and smart-home application described in
 `../PROJECT_1_PLAN.md`. The Vilanous project is unrelated and is not a dependency.
 
+## Demo
+
+![HomeCloud local login screen](docs/images/homecloud-overview.png)
+
+The captured interface is served by the real local C++ API. A user signs in, navigates
+private folders, uploads or previews files, and can restore deleted items from the trash.
+The public repository keeps the server bound to localhost by default.
+
 ## Current milestone
 
 - C++20 storage core
